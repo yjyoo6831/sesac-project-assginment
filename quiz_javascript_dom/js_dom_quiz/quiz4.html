@@ -38,9 +38,17 @@
 
     <script>
       // TODO: 문제 조건을 만족하는 js 코드 작성
-      document.getElementsByClassName('container')[0].style.backgroundcolor='#eee';
-      const el=document.getElementsByTagName('span');
-      el. style.color='blueviolet';
+      // document.getElementsByClassName('container')[0].style.backgroundcolor='#eee';
+      // const el=document.getElementsByTagName('span')[0];
+      // el.style.color='blueviolet';
+
+      const spans=document.querySelectorAll("span");
+      Array.from(spans).forEach((i) => {
+        i.style.color='blueviolet';
+        i.style.fontWeight='bold';
+      });
+      
+      document.getElementsByClassName("container")[0].setAttribute("style","text-align: center;background-color:#eee; ");
       
 
     </script>
