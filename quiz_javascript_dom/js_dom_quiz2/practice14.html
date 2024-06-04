@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>실습 14. 방명록 만들기</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>여기는 방명록!!</h1>
     <form>
-      <label for="writer">작성자</label>
-      <input type="text" id="writer" autocomplete="off" />
-      <br />
-      <br />
+        <label for="writer">작성자</label>
+        <input type="text" id="writer" autocomplete="off" />
+        <br />
+        <br />
 
-      <label for="content">내용</label>
-      <input type="text" id="content" style="width: 500px" autocomplete="off" />
-      <br />
-      <br />
+        <label for="content">내용</label>
+        <input type="text" id="content" style="width: 500px" autocomplete="off" />
+        <br />
+        <br />
 
-      <button type="button" onclick="writeNote();">등록</button>
+        <button type="button" onclick="writeNote();">등록</button>
     </form>
 
     <br />
     <br />
 
     <table id="table" border="1" cellpadding="10" cellspacing="1">
-      <tr>
-        <th>작성자</th>
-        <th>내용</th>
-        <th>작성일</th>
-      </tr>
-      <!-- 
+        <tr>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+        <!-- 
         코드 추가 예시
         <tr>
           <td>홍길동</td>
@@ -40,13 +42,46 @@
         </tr>
       -->
     </table>
-
     <script>
-      // TODO: practice14_설명.png 이미지의 조건을 만족하는 js 코드 작성
-      // writeNote() 함수를 미리 정의해두었습니다.
+        // TODO: practice14_설명.png 이미지의 조건을 만족하는 js 코드 작성
+        // writeNote() 함수를 미리 정의해두었습니다.
 
-      // [등록] 버튼 클릭시 writeNote() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
-      function writeNote() {}
+        // [등록] 버튼 클릭시 writeNote() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
+        function writeNote() {
+            const wri = document.querySelector('#writer');
+            const ctt = document.querySelector('#content');
+            const btn = document.getElementsByTagName('button')[0];
+            
+            
+            const date=new Date();
+            const formattedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}
+                        ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+            console.log(formattedDate);
+            // tr.innerHTML = `
+            // <tr>
+            //     <td>${wri.value}</td>
+            //     <td>${ctt.value}</td>
+            //     <td>${formattedDate}</td>
+            // </tr>
+            // `;
+            // tbl.append(tr);
+            addRow("table",wri,ctt,formattedDate);
+        }
+        
+        function addRow(tbl,wri,ctt,date){
+            let tableRef=document.getElementById('table');
+            let newR=tableRef.insertRow(-1);
+            let newC=newR.insertCell(0);
+            let newC1=newR.insertCell(1);
+            let newC2=newR.insertCell(2);
+            let newText=document.createTextNode(wri.value);
+            let newText1=document.createTextNode(ctt.value);
+            newC.append(newText);
+            newC1.append(newText1);
+            newC2.append(date);
+            
+        }
     </script>
-  </body>
+</body>
+
 </html>

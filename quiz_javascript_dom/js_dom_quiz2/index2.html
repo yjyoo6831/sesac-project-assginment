@@ -31,7 +31,6 @@
         // - [ ] 아이디 input과 댓글 input을 초기화해야 합니다.
 
         const btn = document.querySelector('button');
-        const idpw = document.querySelectorAll('input');
         const cmt_list = document.getElementsByClassName('comment-list')[0];
 
         btn.addEventListener('click', (e) => {
@@ -39,34 +38,19 @@
             e.preventDefault();
             const uid = document.querySelector('input[id="userid"]');
             const cmt = document.querySelector('input[id="comment"]');
-            // console.log(uid.value,cmt.value);
-            const list = document.createElement('li');
+            const li = document.createElement('li');
             let arr=[uid,cmt];
-
             for(let i of arr){
                 if(i.value === ''){
                     alert("빈 값이 있습니다. 다시 입력해주세요.");
                     location.reload(true);
                 }
             }
-
-            list.append(uid.value,"-",cmt.value);
-            cmt_list.append(list);
-
-            // uid.style.fontWeight="700";
-            // arr.forEach(element => {
-            //     if ( element!== '') {
-            //         console.log(element);
-
-            //         list.append(element);
-
-            //         cmt_list.appendChild(list);
-            //     }
-            //     element.value='';
-            // });
-            
-        })
-
+            li.innerHTML = `
+                <li><b>${uid.value}</b>-${cmt.value}</li>`
+            document.querySelector('ul').append(li);
+            uid.value='';cmt.value='';
+        });
     </script>
 </body>
 
