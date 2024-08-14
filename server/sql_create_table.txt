@@ -22,7 +22,7 @@ insert into todo VALUES (null,'my todo6',1);
 
 update todo set title="할일 2번" where id=2;
 delete from todo where id=3;
-select * from todo ;
+select * from todo order by id desc;
 
 select * from mysql.user;
 
