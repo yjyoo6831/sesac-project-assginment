@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function Todo({item, deletedItem}) {
-  console.log('item > ',item); // {id: 1, title: 'my todo1', done: false}
+  // console.log('item > ',item); // {id: 1, title: 'my todo1', done: false}
 
   const [todoItem, setTodoItem] = useState(item);
   const [readOnly, setReadOnly] = useState(true);

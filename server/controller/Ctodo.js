@@ -64,6 +64,9 @@ exports.updateTodo = async(req,res)=>{
 
 exports.deleteTodo = async (req,res) => {
     try {
+        console.log("delete req.body >> ",req.body); // delete req.body >>  { id: 9 }
+        // console.log("delete res.data >> ",res.data); //undefined
+        
         let isDeleted = await Todo.destroy({
             where:{
                 id: { [Op.eq]: req.params.todoId },
