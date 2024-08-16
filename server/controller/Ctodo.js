@@ -57,7 +57,7 @@ exports.updateTodo = async(req,res)=>{
         // 수정 성공
         res.send(true);
     } catch (err) {
-        res.send(error);        
+        res.send(err);        
     }
     
 }
